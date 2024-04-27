@@ -38,7 +38,7 @@ Both MSB and LSB variables are declared as **uint8_t**:
 <ul>
   <li><b>MSB:</b> Obtained through bitwise right shift operation.</li>
   <p><code>msb = angle >> 2;</code></p>
-  <p>Each bit is shifted two positions to the right. Consequently, only the first (leftmost) bits are retained and stored in the variable <code>msb</code>.</p>
+  <p>Each bit is shifted two positions to the right. Consequently, only the first (leftmost) 8 bits are retained and stored in the variable <code>msb</code>.</p>
   
   <li><b>LSB:</b> Obtained by applying a bit mask.</li>
       <p><code>lsb = angle & 3;</code></p>
