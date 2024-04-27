@@ -1,5 +1,5 @@
 # Introduction
-This file is a crucial component of the GoKart Project at Hochschule Rhein-Waal.
+This module is a component of the GoKart Project at Hochschule Rhein-Waal.
 
 The steering system incorporates a potentiometer to track the rotation angle of the steering wheel. Within this file, the StPot class is implemented to read analog data and convert it into two bytes: the Most Significant Byte (MSB) and the Least Significant Byte (LSB), facilitating transmission via CAN communication.
 
