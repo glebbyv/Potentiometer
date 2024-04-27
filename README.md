@@ -28,7 +28,8 @@ by meance of 10-bit ADC in AVR ATmega 328p recieveing data from potentiometer is
 
 <b>1 - Most Significant Byte</b> 
 The most significant byte (MSB) in a binary number is the byte that represents the largest place value in the number. In other words, it's the byte that contributes the most to the total value of the number. It's often the leftmost byte when the number is written out in binary form.
-<b>2 - Least Significant Byte</b>
+
+<b>0 - Least Significant Byte</b>
 
 <ul>
  <li><b>MSB</b> recieved just by bitwise operation.</li>
