@@ -20,13 +20,13 @@ The steering system incorporates a potentiometer to track the rotation angle of 
 # Transmitting Analog Value with CAN BUS
 To transmit data via CAN communication, the 10-bit ADC in the AVR ATmega328p is utilized to receive data from the potentiometer, producing an integer number ranging from 0 to 1023. Given that the CAN bus can include 8 data bytes for transmission, only 2 bytes are used to transmit the analog value.
 
-<ul>
- <li>**Most Significant Byte (MSB)**:</li>
+=
+ -**Most Significant Byte (MSB)**:
     The MSB represents the largest place value in the binary number, significantly contributing to the total value. It's extracted using bitwise operations.
 
-  <li>**Least Significant Byte (LSB)**:</li>
+  -**Least Significant Byte (LSB)**:
     The LSB is obtained by applying a mask, ensuring only the last two bits remain unchanged while others are set to 0.
-</ul>
+
   
 <ul>
   <li><b>MSB:</b> Obtained through bitwise right shift operation.</li>
