@@ -5,5 +5,7 @@ The steering system has a potentiometer, which tracks rotation angle of the stee
 
 
 # Set up
-<p>StPot has 1 private attribute - attached pin. set during creation of an instance :
-  <code>StPot pot(A0);</code></p>
+<ul>
+  <li><p>StPot has 1 private attribute - attached pin. set during creation of an instance :</li>
+    <li><code>StPot pot(A0);</code></p>
+</ul>
