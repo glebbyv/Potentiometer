@@ -35,8 +35,8 @@ To transmit data via CAN communication, the 10-bit ADC in the AVR ATmega328p is 
   
   <li><b>LSB:</b> Obtained by applying a bit mask.</li>
       <p><code>lsb = angle & 3;</code></p>
-  <p>Alternatively represented in binary as: 
-      <code>lsb = angle & 0b00000011;</code></p>
+  Alternatively represented in binary as: 
+     <p><code>lsb = angle & 0b00000011;</code></p>
   <p>As a result, only the two rightmost bits remain unchanged, while all other bits are set to 0.</p>
 </ul>
 
