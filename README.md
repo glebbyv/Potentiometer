@@ -22,4 +22,5 @@ The steering system has a potentiometer, which tracks rotation angle of the stee
 
 # Transmiting Analog Value with CAN BUS
 by meance of 10-bit ADC in AVR ATmega 328p recieveing data from potentiometer is stored in an integer number in range 0-1023. Thus, required amount of bits in order to sent the value is 10.Since Bus can include 8 data bytes to send, only 2 bytes should be used for transmiting the analog value.
-1 | 2
+| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 | Column 10 | 
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
