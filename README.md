@@ -40,7 +40,7 @@ The most significant byte (MSB) in a binary number is the byte that represents t
    or speaking binary:
   <p><code>lsb=angle & 0b00000011;</code></p>
   As a result only two two last bits will remain the same and others will turn into 0.
-
+</ul>
 
 Both MSB and LSB variables are <b>uint8_t</b>:
 <ul>
