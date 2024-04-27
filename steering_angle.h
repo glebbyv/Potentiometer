@@ -4,9 +4,10 @@
 class StPot
 {
   private:
+  int potPin;
   uint8_t msb,lsb;
   public:
-  StPot();
+  StPot(int Pin);
   void setup();
   int angleRead();
   void conv2bytes(int angle);
