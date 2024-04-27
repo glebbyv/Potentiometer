@@ -40,8 +40,16 @@ The most significant byte (MSB) in a binary number is the byte that represents t
    or speaking binary:
   <p><code>lsb=angle & 0b00000011;</code></p>
   As a result only two two last bits will remain the same and others will turn into 0.
-  | Entity 1 | Relationship | Entity 2 |
-|----------|--------------|----------|
+
+
+Both MSB and LSB variables are <b>uint8_t</b>:
+<ul>
+<li>Size: uint8_t is guaranteed to be 8 bits in size.</li>
+<li>Range: As an unsigned integer, it can represent values from 0 to 255 (2^8 - 1), inclusive.</li>
+<li>Signedness: Being unsigned, it does not represent negative numbers.</li>
+<li>Platform Independence: Its size is explicitly defined to be 8 bits regardless of the platform, which makes it useful for ensuring consistent behavior across different architectures.</li>
+<li>Header: uint8_t is defined in the <stdint.h> or <cstdint> header files in C, and in the <cstdint> header file in C++.</li>
+</ul>
 
 
 
