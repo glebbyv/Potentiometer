@@ -24,6 +24,8 @@ The steering system has a potentiometer, which tracks rotation angle of the stee
 by meance of 10-bit ADC in AVR ATmega 328p recieveing data from potentiometer is stored in an integer number in range 0-1023. Thus, required amount of bits in order to sent the value is 10.Since Bus can include 8 data bytes to send, only 2 bytes should be used for transmiting the analog value.
 |1 | 1 | 1 | 1 | 1 | 1| 1 | 1 | 0 | 0 | 
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
+
+
 <b>1 - Most Significant Byte</b> 
 The most significant byte (MSB) in a binary number is the byte that represents the largest place value in the number. In other words, it's the byte that contributes the most to the total value of the number. It's often the leftmost byte when the number is written out in binary form.
 <b>2 - Least Significant Byte</b>
