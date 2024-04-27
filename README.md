@@ -1,57 +1,45 @@
-# INTRO
-This module is a part of the GoKart Project in Hochschule Rhein-Waal.
+<!-- Introduction -->
+<p>This file is a crucial component of the GoKart Project at Hochschule Rhein-Waal.</p>
 
-The steering system has a potentiometer, which tracks rotation angle of the steering wheel. The class StPot presented in this file reads analog data and converts in into 2 Bytes: Most Significant(MSB) and Least Significant(LSB), in order to sent it with help of CAN communication.
+<p>The steering system incorporates a potentiometer to track the rotation angle of the steering wheel. Within this file, the StPot class is implemented to read analog data and convert it into two bytes: the Most Significant Byte (MSB) and the Least Significant Byte (LSB), facilitating transmission via CAN communication.</p>
 
-
-# Set up
+<!-- Setup -->
 <ul>
-  <li><p>StPot has 1 private attribute - attached pin. set during creation of an instance :</li>
-    <code>StPot pot(A0);</code></p>
-  <li>2 privite atrributes <b>msb</b> and <b>lsb</b> for processing</li>
+  <li>
+    <p>StPot has one private attribute: the attached pin, set during the instance's creation:</p>
+    <code>StPot pot(A0);</code>
+  </li>
+  <li>
+    <p>Two private attributes, <b>msb</b> and <b>lsb</b>, are utilized for processing.</p>
+  </li>
 </ul>
 
-# Class methods
+<!-- Class Methods -->
 <ul>
-  <li><p><code>int angleRead();</code></p></li>
-    A wrap up for Standard Arduino method AnalodRead. Data is took from the pin assigned during creation of an instance of the class.
-    Returns integer number.
-  <li><p><code>void conv2bytes(int angle);</code></p></li>
-    separates analog value into 2 Bytes. Input parameter - one integer number - measures from potentiometer. The method doesn't return anything, but rewrites private attributes of the rescpectful instance: <b>msb</b> and <b>lsb</b>.
+  <li>
+    <p><code>angleRead()</code>:</p>
+    <p>This method wraps up the standard Arduino function <code>AnalogRead</code>, retrieving data from the assigned pin during the instance's creation. It returns an integer number.</p>
+  </li>
+  <li>
+    <p><code>conv2bytes(int angle)</code>:</p>
+    <p>This method separates the analog value into two bytes. The input parameter, an integer number, represents the measurement from the potentiometer. While the method doesn't return anything, it updates the private attributes <b>msb</b> and <b>lsb</b> of the respective instance.</p>
+  </li>
 </ul>
 
-# Transmiting Analog Value with CAN BUS
-by meance of 10-bit ADC in AVR ATmega 328p recieveing data from potentiometer is stored in an integer number in range 0-1023. Thus, required amount of bits in order to sent the value is 10.Since Bus can include 8 data bytes to send, only 2 bytes should be used for transmiting the analog value.
-|1 | 1 | 1 | 1 | 1 | 1| 1 | 1 | 0 | 0 | 
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
+<!-- Transmitting Analog Value with CAN BUS -->
+<p>To transmit data via CAN communication, the 10-bit ADC in the AVR ATmega328p is utilized to receive data from the potentiometer, producing an integer number ranging from 0 to 1023. Given that the CAN bus can include 8 data bytes for transmission, only 2 bytes are used to transmit the analog value.</p>
 
+<p><b>Most Significant Byte (MSB)</b>:</p>
+<p>The MSB represents the largest place value in the binary number, significantly contributing to the total value. It's extracted using bitwise operations.</p>
 
-<b>1 - Most Significant Byte</b> 
-The most significant byte (MSB) in a binary number is the byte that represents the largest place value in the number. In other words, it's the byte that contributes the most to the total value of the number. It's often the leftmost byte when the number is written out in binary form.
+<p><b>Least Significant Byte (LSB)</b>:</p>
+<p>The LSB is obtained by applying a mask, ensuring only the last two bits remain unchanged while others are set to 0.</p>
 
-<b>0 - Least Significant Byte</b>
-
+<p>Both MSB and LSB variables are declared as <b>uint8_t</b>:</p>
 <ul>
- <li><b>MSB</b> recieved just by bitwise operation.</li>
-   <p><code>msb=angle >> 2;</code></p>
- every bit is shifted on two bits. Thus, only first(from "left side") bites will be stored in var msb.
- <li><b>LSB</b> recieved by applying a mask.</li>
-   <p><code>lsb=angle & 3;</code></p>
-   or speaking binary:
-  <p><code>lsb=angle & 0b00000011;</code></p>
-  As a result only two two last bits will remain the same and others will turn into 0.
+  <li>Size: Guaranteed to be 8 bits.</li>
+  <li>Range: Can represent values from 0 to 255.</li>
+  <li>Signedness: Represents only non-negative numbers.</li>
+  <li>Platform Independence: Maintains a consistent size across different architectures.</li>
+  <li>Header: Defined in the <code>&lt;stdint.h&gt;</code> or <code>&lt;cstdint&gt;</code> header files in C, and in the <code>&lt;cstdint&gt;</code> header file in C++.</li>
 </ul>
-
-Both MSB and LSB variables are <b>uint8_t</b>:
-<ul>
-<li>Size: uint8_t is guaranteed to be 8 bits in size.</li>
-<li>Range: As an unsigned integer, it can represent values from 0 to 255 (2^8 - 1), inclusive.</li>
-<li>Signedness: Being unsigned, it does not represent negative numbers.</li>
-<li>Platform Independence: Its size is explicitly defined to be 8 bits regardless of the platform, which makes it useful for ensuring consistent behavior across different architectures.</li>
-<li>Header: uint8_t is defined in the <stdint.h> or <cstdint> header files in C, and in the <cstdint> header file in C++.</li>
-</ul>
-
-
-
-
- 
