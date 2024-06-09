@@ -21,12 +21,11 @@ Both MSB and LSB variables are declared as **uint8_t**:
 - **Platform Independence**: Maintains a consistent size across different architectures.
 - **Header**: Defined in the <stdint.h> or <cstdint> header files in C, and in the <cstdint> header file in C++.
 
-# Setup
-- StPot has one private attribute: the attached pin, set during the instance's creation:
-    ```cpp
-    StPot pot(A0);
-    ```
-- Two private attributes, **msb** and **lsb**, are utilized for processing.
+## steering_angle.h
+
+### Overview
+The `steering_angle.h` header file defines a class `StPot` for interacting with the potentiometer to measure the steering angle. It includes the necessary Arduino libraries and declares the class members and methods.
+
 
 ### Class Members
 - `TrigPin`: An integer representing the Arduino pin connected to the trigger pin of the potentiometer.
