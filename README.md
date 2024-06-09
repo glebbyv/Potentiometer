@@ -9,21 +9,18 @@ To transmit data via CAN communication, the 10-bit ADC is utilized to receive da
 
 - **Most Significant Byte (MSB)**:
     The MSB represents the largest place value in the binary number, significantly contributing to the total value. It's extracted using bitwise operations.
-
-- **Least Significant Byte (LSB)**:
-    The LSB is obtained by applying a mask, ensuring only the last two bits remain unchanged while others are set to 0.
-
-<ul>
-  <li><b>MSB:</b> Obtained through bitwise right shift operation.</li>
+  <b>MSB:</b> Obtained through bitwise right shift operation.
   <p><code>msb = angle >> 2;</code></p>
   <p>Each bit is shifted two positions to the right. Consequently, only the first (leftmost) 8 bits are retained and stored in the variable <code>msb</code>.</p>
   
-  <li><b>LSB:</b> Obtained by applying a bit mask.</li>
+- **Least Significant Byte (LSB)**:
+    The LSB is obtained by applying a mask, ensuring only the last two bits remain unchanged while others are set to 0
+  
+  <b>LSB:</b> Obtained by applying a bit mask.
       <p><code>lsb = angle & 3;</code></p>
   Alternatively represented in binary as: 
      <p><code>lsb = angle & 0b00000011;</code></p>
-  <p>As a result, only the two rightmost bits remain unchanged, while all other bits are set to 0.</p>
-</ul>  
+  <p>As a result, only the two rightmost bits remain unchanged, while all other bits are set to 0.</
 
   
 Both MSB and LSB variables are declared as **uint8_t**:
