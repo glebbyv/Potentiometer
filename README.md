@@ -1,10 +1,10 @@
 # Introduction
 This module is a component of the GoKart Project at Hochschule Rhein-Waal.
 
-The steering system incorporates a potentiometer to track the rotation angle of the steering wheel. Within this file, the StPot class is implemented to read analog data and convert it into two bytes: the Most Significant Byte (MSB) and the Least Significant Byte (LSB), facilitating transmission via CAN communication.
+This library provides a simple interface for reading the steering angle from a potentiometer connected to an Arduino board. Additionally, it prepares the steering angle as two bytes to be sent via BusCAN to MicroAutoBox 2.
 
 # Transmitting Analog Value with CAN BUS
-To transmit data via CAN communication, the 10-bit ADC in the AVR ATmega328p is utilized to receive data from the potentiometer, producing an integer number ranging from 0 to 1023. Given that the CAN bus can include 8 data bytes for transmission, only 2 bytes are used to transmit the analog value.
+To transmit data via CAN communication, the 10-bit ADC is utilized to receive data from the potentiometer, producing an integer number ranging from 0 to 1023. Given that the CAN bus can include 8 data bytes for transmission, only 2 bytes are used to transmit the analog value.
 
 
 - **Most Significant Byte (MSB)**:
