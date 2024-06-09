@@ -9,6 +9,7 @@ To transmit data via CAN communication, the 10-bit ADC is utilized to receive da
 
 - **Most Significant Byte (MSB)**:
     The MSB represents the largest place value in the binary number, significantly contributing to the total value. It's extracted using bitwise operations.
+  
   <b>MSB:</b> Obtained through bitwise right shift operation.
   <p><code>msb = angle >> 2;</code></p>
   <p>Each bit is shifted two positions to the right. Consequently, only the first (leftmost) 8 bits are retained and stored in the variable <code>msb</code>.</p>
