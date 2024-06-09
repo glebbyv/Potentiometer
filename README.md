@@ -49,26 +49,19 @@ Both MSB and LSB variables are declared as **uint8_t**:
 
 ### Usage
 
-To use the Ultrasonic Sensor Library in your Arduino project, include the `ultrasonic.h` header file and `ultrasonic.cpp` source file in your project directory. Then, create an instance of the `UltraSonic` class with the appropriate trigger and echo pins. You can then call the `dist()` method to measure the distance to an object.
-
 ```cpp
-#include "ultrasonic.h"
+#include "steering_angle.h"
 #include <Arduino.h>
 
-UltraSonic sensor(9, 10); // Trigger pin: 9, Echo pin: 10
+StPot steeringPot(A0); // Potentiometer connected to analog pin A0
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  int distance = sensor.dist();
-  Serial.print("Distance: ");
-  if (distance == -1) {
-    Serial.println("Out of range");
-  } else {
-    Serial.print(distance);
-    Serial.println(" cm");
-  }
+  int angle = steeringPot.angleRead();
+  Serial.print("Steering Angle: ");
+  Serial.println(angle);
   delay(500);
 }
