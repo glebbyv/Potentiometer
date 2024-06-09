@@ -28,12 +28,25 @@ Both MSB and LSB variables are declared as **uint8_t**:
     ```
 - Two private attributes, **msb** and **lsb**, are utilized for processing.
 
-# Class Methods
-- **angleRead()**:
-    This method wraps up the standard Arduino function AnalogRead, retrieving data from the assigned pin during the instance's creation. It returns an integer number.
+### Class Members
+- `TrigPin`: An integer representing the Arduino pin connected to the trigger pin of the potentiometer.
 
-- **conv2bytes(int angle)**:
-    This method separates the analog value into two bytes. The input parameter, an integer number, represents the measurement from the potentiometer. While the method doesn't return anything, it updates the private attributes **msb** and **lsb** of the respective instance.
+### Public Methods
+- `StPot(int Pin)`: Constructor method for initializing the potentiometer with the specified pin.
+- `int angleRead()`: Method for reading the current angle of the potentiometer.
+- `void conv2bytes(int angle)`: Method for converting the potentiometer's angle into two bytes (msb and lsb) to be sent via BusCAN to MicroAutoBox 2.
+
+## steering_angle.cpp
+
+### Overview
+The `steering_angle.cpp` source file implements the methods declared in `steering_angle.h`. It includes the necessary Arduino libraries and provides the functionality to read the steering angle from the potentiometer and prepare it as two bytes to be sent via BusCAN.
+
+### Constructor
+- `StPot::StPot(int Pin)`: Constructor method for initializing the potentiometer with the specified pin.
+
+### Public Methods
+- `StPot::angleRead()`: Method for reading the current angle of the potentiometer.
+- `StPot::conv2bytes(int angle)`: Method for converting the potentiometer's angle into two bytes (msb and lsb) to be sent via BusCAN to MicroAutoBox 2.
 
 <ul>
   <li><b>MSB:</b> Obtained through bitwise right shift operation.</li>
