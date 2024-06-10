@@ -16,7 +16,9 @@
   }
 
   //separating potentiometer's value into msb and lsb
-  void StPot::conv2bytes(int angle){
+  void StPot::conv2bytes(){
+    int angle = analogRead(potPin);
+
     msb=angle >> 2;
     lsb=angle & 3;
   }

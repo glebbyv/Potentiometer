@@ -4,16 +4,15 @@
 class StPot
 {
   private:
-  int potPin;
-  uint8_t msb,lsb;
+  int potPin;// attached pin
+  
   public:
-  StPot(int Pin);
-  void setup();
-  int angleRead();
-  void conv2bytes(int angle);
+  uint8_t msb,lsb;// atributes of the class
+  StPot(int Pin); //class of steering potentiometer 
+  int angleRead();// reading Potentiometers value
+  void conv2bytes();// converting int value into 2 bytes(msb and lsb)
 
 };
 
-//extern saclass steering_angle; // name to access the class type
 
 #endif
