@@ -31,11 +31,6 @@ Both MSB and LSB variables are declared as **uint8_t**:
 - **Platform Independence**: Maintains a consistent size across different architectures.
 - **Header**: Defined in the <stdint.h> or <cstdint> header files in C, and in the <cstdint> header file in C++.
 
-## steering_angle.h
-
-### Overview
-The `steering_angle.h` header file defines a class `StPot` for interacting with the potentiometer to measure the steering angle. It includes the necessary Arduino libraries and declares the class members and methods.
-
 
 ### Class Members
 - `TrigPin`: An integer representing the Arduino pin connected to the trigger pin of the potentiometer.
@@ -43,19 +38,7 @@ The `steering_angle.h` header file defines a class `StPot` for interacting with 
 ### Public Methods
 - `StPot(int Pin)`: Constructor method for initializing the potentiometer with the specified pin.
 - `int angleRead()`: Method for reading the current angle of the potentiometer.
-- `void conv2bytes(int angle)`: Method for converting the potentiometer's angle into two bytes (msb and lsb) to be sent via BusCAN to MicroAutoBox 2.
-
-## steering_angle.cpp
-
-### Overview
-The `steering_angle.cpp` source file implements the methods declared in `steering_angle.h`. It includes the necessary Arduino libraries and provides the functionality to read the steering angle from the potentiometer and prepare it as two bytes to be sent via BusCAN.
-
-### Constructor
-- `StPot::StPot(int Pin)`: Constructor method for initializing the potentiometer with the specified pin.
-
-### Public Methods
-- `StPot::angleRead()`: Method for reading the current angle of the potentiometer.
-- `StPot::conv2bytes(int angle)`: Method for converting the potentiometer's angle into two bytes (msb and lsb) to be sent via BusCAN to MicroAutoBox 2.
+- `void conv2bytes(int angle)`: Converts the potentiometer's angle into two bytes (MSB and LSB) for transmission via BusCAN to MicroAutoBox 2. The data is stored in the instance's attributes.
 
 ### Usage
 
